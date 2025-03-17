@@ -1,1 +1,121 @@
+# 사용 언어 : python
 
+# 문제 1
+n=int(input())
+lst=[]
+
+for i in range(n):
+    a=int(input())
+    lst.append(a)
+
+lst.sort()
+
+for i in range(n):
+    print(lst[i])
+
+
+# 문제 2
+lst=[]
+
+for i in range(5):
+    tmp = int(input())
+    lst.append(tmp)
+
+lst.sort()
+print(sum(lst)//len(lst))
+print(lst[2])
+
+
+# 문제 3
+n,k=map(int,input().split())
+
+lst=list(map(int,input().split()))
+
+lst.sort()
+print(lst[-k])
+
+# 문제 4
+
+#시간 줄이기 위해서 sys 사용
+import sys
+
+n=int(sys.stdin.readline())
+lst=[]
+
+for i in range(n):
+    tmp=int(sys.stdin.readline())
+    lst.append(tmp)
+
+lst.sort()
+
+for i in range(n):
+    print(lst[i])
+
+# 문제 5
+# 4번과 5번은 메모리 제한이 다름. -> 4번을 실행했을 때 메모리는
+# 76MB 이므로 파이썬의 sort를 쓰면 메모리 제한이 걸림 
+# 4번과 5번의 차이는 수의 범위 차이 : 1,000,000 vs 10,000
+# 10000개의 리스트 먼저 정의해놓고 인덱스 값 출력.
+
+import sys
+
+n=int(sys.stdin.readline())
+lst=[0]*10000
+
+for i in range(n):
+    a=int(sys.stdin.readline())
+    lst[a-1]+=1
+
+for i in range(10000):
+    if lst[i]!=0:
+        for j in range(lst[i]):
+            print(i+1
+
+# 문제 6
+a=input()
+lst=[]
+
+for i in range(len(a)):
+    tmp=int(a[i])
+    lst.append(tmp)
+
+lst.sort()
+lst.reverse()
+
+for i in range(len(lst)):
+    print(lst[i],end="") #출력 형식 맞추기
+
+# 문제 7
+
+import sys
+n=int(sys.stdin.readline())
+
+lst=[]
+
+for i in range(n):
+    tmp=list(map(int,sys.stdin.readline().split()))
+    lst.append(tmp) #lst는 이중리스트가 됨.
+
+lst.sort()
+
+for i in range(n):
+    for j in range(2):
+        print(lst[i][j],end=" ")
+    print()
+
+# 문제 8
+import sys 
+
+n=int(sys.stdin.readline())
+
+lst=[]
+
+for i in range(n):
+    tmp=list(map(int,sys.stdin.readline().split()))
+    tmp.reverse() #reverse 해서 append
+    lst.append(tmp)
+
+lst.sort()
+
+for i in lst:
+    print(i[1],i[0])
