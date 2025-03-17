@@ -1,1 +1,136 @@
+1번
+
+n = int(input())
+array =[]
+for i in range(0,n,1):
+    a=int(input())
+    array.append(a)
+
+for i in range (0,n-1,1):
+    min = i
+    for j in range(i+1,n,1):
+        if (array[j] < array[min]):
+            min = j
+
+    temp = array[i]
+    array[i]=array[min]
+    array[min]=temp
+
+for i in range(0,n,1):
+    print(array[i])
+
+2번
+
+arr=[None]*5
+sum=0
+
+for i in range(0,5):
+    tmp=int(input(" "))
+    sum=sum+tmp
+    arr[i]=tmp
+avr=sum/5
+
+for i in range(4,0,-1):
+    for j in range(0,i):
+        if arr[j]>arr[j+1]:
+            temp=arr[j]+1
+            arr[j+1]=arr[j]
+            arr[j]=temp
+
+center=arr[2]
+
+print(avr,"\n",center)
+
+
+3번
+
+n,k=map(int,input().split())
+
+arr=list(map(int,input().split()))[:n]
+
+for i in range(n-1,0,-1):
+    for j in range(0,i):
+        if arr[j]<arr[j+1]:
+            temp=arr[j+1]
+            arr[j+1]=arr[j]
+            arr[j]=temp
+
+
+print(arr[k-1])
+
+
+4번
+
+n = int(input())
+array =[]
+for i in range(0,n,1):
+    a=int(input())
+    array.append(a)
+
+array.sort()
+
+for i in range(0,n,1):
+    print(array[i])
+
+6번
+
+n = input()  
+arr = list(map(int,n)) 
+num = len(arr)  
+
+for i in range(num-1,0,-1):
+    for j in range(0,i):
+        if arr[j]<arr[j+1]:
+            temp=arr[j+1]
+            arr[j+1]=arr[j]
+            arr[j]=temp
+
+print("".join(map(str, arr)))  
+
+
+7번
+
+n = int(input())
+points = []*n  
+
+for i in range(n):
+    x, y = map(int, input().split())
+    points.append((x, y))  
+
+for i in range(n-1,0,-1):
+    for j in range(0,i):
+        if points[j]>points[j+1]:
+            tmp=points[j+1]
+            points[j+1]=points[j]
+            points[j]=tmp
+
+
+for x, y in points:
+    print(x, y)  
+
+
+8번
+
+n=int(input())
+points=[]*n
+
+for i in range(0,n):
+    x, y = map(int, input().split())
+    points.append((x, y))
+
+
+for i in range(n-1,0,-1):
+    for j in range(0,i):
+        if(points[j][1]>points[j+1][1]) or (points[j][1]==points[j+1][1] and points[j][0]>points[j+1][0]):
+            tmp=points[j+1]
+            points[j+1]=points[j]
+            points[j]=tmp
+
+
+for x,y in points:
+    print(x,y)
+
+
+
+    
 
