@@ -1,12 +1,12 @@
+import sys
+
 N = int(input())
 ary = []
 for i in range(N) :
-    ary.append(int(input()))
+    ary.append(int(sys.stdin.readline()))
 
 ary.sort()
 
-for i in range(N):
+for i in ary:
+    print(i)
 
-    print(ary[i])
-
-# 틀림
