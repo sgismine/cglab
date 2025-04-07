@@ -21,3 +21,5 @@ while start <= end :
         ans = mid
         start = mid + 1
 print(ans)
+
+# 왜 틀렸노..
