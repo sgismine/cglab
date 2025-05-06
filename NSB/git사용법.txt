@@ -7,6 +7,8 @@
 - 브랜치 정하기
     1. 브런치 파기([my-topic]에 본인 브런치이름, 나는 python했음)
         git checkout -b feature/[my-topic]
+    2. 브랜치 이동
+        git checkout [my-topic]
     
 - 변경사항 추가 및 커밋
     1. 파일 이동
