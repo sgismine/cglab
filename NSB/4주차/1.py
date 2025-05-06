@@ -19,5 +19,5 @@ while start <= end :
         start = mid + 1
 print(ans)
 
-# 시간 초과
+# 시간 초과 -> python3으로 제출하지않고 pypy3로 제출하니까 됨.
 
