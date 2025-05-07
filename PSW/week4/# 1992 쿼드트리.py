@@ -36,7 +36,7 @@ def daq(x, y, size):                            # x = rol, y = col
 
 # 입력 처리
 n = int(input())
-arr = [list(map(int, sys.stdin.readline().split())) for _ in range(n)]
+arr = [list(map(int, sys.stdin.readline().strip())) for _ in range(n)]
 
 # 분할 정복 실행
 daq(0, 0, n)
