@@ -1,5 +1,5 @@
 import sys
-sys.setrecursionlimit(10**9)  # 노드가 최대 10,000개니까
+sys.setrecursionlimit(10**5)  # 노드가 최대 10,000개니까
 
 
 preorder = []
