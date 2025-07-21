@@ -22,7 +22,7 @@ def dfs(depth,total,plus,minus,mult,div):
     if mult>0:
          dfs(depth+1,total*number[depth],plus,minus,mult-1,div)
     if div>0:
-         dfs(depth+1,total/number[depth],plus,minus,mult,div-1)
+         dfs(depth+1,total//number[depth],plus,minus,mult,div-1)
 
 
 dfs(1,number[0],op[0],op[1],op[2],op[3])
