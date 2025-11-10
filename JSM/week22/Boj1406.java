@@ -59,5 +59,6 @@ public class Boj1406 {
             bw.write(iterator.next());
         bw.flush();
         bw.close();
+        br.close();
     }
 }
