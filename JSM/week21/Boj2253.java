@@ -7,20 +7,20 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Boj2253 {
-    static final int INF = 1000000;
-    static int N, M;
-    static boolean[] isSmall;     // 작은 돌 여부
-    static int[][] dp;              // dp[i][k]: 'i번 돌에 점프 길이 k'로 도착했을 때의 최소 점프 횟수
+    static final int INF = 1000000;     // 도달 불가 표시용 큰 수
+    static int N, M;                    // N: 마지막 돌 번호, M: 작은 돌 개수
+    static boolean[] isSmall;           // 작은 돌 여부
+    static int[][] dp;                  // dp[i][k]: 'i번 돌에 점프 길이 k'로 도착했을 때의 최소 점프 횟수
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         // 첫 줄 N, M 입력
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        // 작은 돌 입력
+        // 작은 돌 입력: 1번부터 쓰기 위해 N+1
         isSmall = new boolean[N + 1];
         for (int i = 0; i < M; i++) {
             int b = Integer.parseInt(br.readLine());
@@ -28,7 +28,7 @@ public class Boj2253 {
         }
 
         // 점프 길이 최대 범위 설정
-        int maxJump = (int) Math.sqrt(2 * N) + 2;
+        int maxJump = (int) Math.sqrt(2 * N) + 2;   // 수학적 접근(그냥 N+5라고 해도 된다)
         dp = new int[N + 1][maxJump + 1];
         for (int i = 0; i <= N; i++) Arrays.fill(dp[i], INF);
 
@@ -40,12 +40,12 @@ public class Boj2253 {
             if (isSmall[i]) continue; // 작은 돌은 건너뜀
 
             for (int k = 0; k < maxJump; k++) {
-                if (dp[i][k] == INF) continue;
+                if (dp[i][k] == INF) continue;  // 이 (i,k) 상태로는 아직 도달 못 함
 
                 // 다음 점프 길이 후보: k-1, k, k+1
                 for (int nextK = k - 1; nextK <= k + 1; nextK++) {
                     if (nextK <= 0) continue;   // 점프 길이 > 0
-                    int next = i + nextK;
+                    int next = i + nextK;       // 다음으로 갈 돌
                     if (next <= N && !isSmall[next]) {
                         dp[next][nextK] = Math.min(dp[next][nextK], dp[i][k] + 1);  // 더 작으면 갱신
                     }

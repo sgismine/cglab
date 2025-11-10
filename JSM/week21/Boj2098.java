@@ -8,10 +8,10 @@ import java.util.StringTokenizer;
 
 public class Boj2098 {
     static int N;                       // 도시 개수
-    static int[][] W;                   // 비용 행렬
+    static int[][] W;                   // 도시 간 이동비용 행렬
     static int[][] dp;                  // DP
     static int statusFullBit;           // 모든 도시 방문 상태(111...1)
-    static final int INF = 100000000;   // 충분히 큰 값
+    static final int INF = 100000000;   // 충분히 큰 값(경로가 없는 경우 처리용)
 
 
     public static void main(String[] args) throws IOException {
@@ -28,8 +28,8 @@ public class Boj2098 {
         }
 
         statusFullBit = (1 << N) - 1;   // (모든 도시 방문 상태)
-        dp = new int[N][statusFullBit]; // dp
-        for (int[] row : dp) Arrays.fill(row, -1);  // -1로 초기화
+        dp = new int[N][statusFullBit]; // dp[now][visited]: 지금 now 도시에 있고, visited 상태일 때 남은 모든 도시를 방문하고 출발점(0번)으로 돌아가는 최소비용
+        for (int[] row : dp) Arrays.fill(row, -1);  // -1로 초기화(아직 계산 안 함 표시)
 
         System.out.println(tsp(0, 1));  // 0번 도시에서 시작 (0001: 0번도시 방문상태)
     }
