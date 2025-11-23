@@ -23,7 +23,6 @@ public class Boj17298 {
             NGE[i] = -1;                                // 오큰수 -1로 초기화
         }
 
-
         Stack<Integer> stack = new Stack<>();
 
         for (int i = 0; i < N; i++) {

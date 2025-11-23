@@ -40,4 +40,3 @@ public class Boj1874 {
         sc.close();
     }
 }
-
