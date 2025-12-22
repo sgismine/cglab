@@ -18,15 +18,9 @@ public class Boj2164 {
             queue.offer(i);
         }
 
-        boolean flag = false;
-
         while (queue.size() > 1) {
-            if (!flag) {
-                queue.poll();
-            } else {
-                queue.offer(queue.poll());
-            }
-            flag = !(flag);
+            queue.poll();
+            queue.offer(queue.poll());
         }
 
         System.out.println(queue.peek());
